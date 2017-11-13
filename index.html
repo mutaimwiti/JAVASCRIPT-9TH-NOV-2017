@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+       <div class="panel panel-primary">
+           <div class="panel-heading">
+               European Soccer Giants
+           </div>
+           <div class="panel-body">
+               <div class="row">
+                   <div class="col-md-12">
+                       <table class="table table-bordered">
+                           <thead>
+                           <tr>
+                               <th>Team</th>
+                               <th>League</th>
+                           </tr>
+                           </thead>
+                           <tbody id="teamsBody"></tbody>
+                       </table>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
+    <script src="public/js/jquery.min.js"></script>
+    <script src="public/js/bootstrap.bundle.min.js"></script>
+    <script src="public/js/teams.js"></script>
+    <script>
+        window.onload = function () {
+            /*
+            OBJECTS
+            This is an array. It is an object and will be used to hold other objects of prototype Team
+             */
+            var teams = [];
+            teams[0] = new Team("Manchester United").setLeague("EPL");
+            teams[1] = new Team("Liverpool").setLeague("EPL");
+            teams[2] = new Team("Arsenal").setLeague("EPL");
+            teams[3] = new Team("Chelsea").setLeague("EPL");
+
+
+            teams[4] = new Team("Barcelona").setLeague("La Liga");
+            teams[5] = new Team("Real Madrid").setLeague("La Liga");
+            teams[6] = new Team("Atletico Madrid").setLeague("La Liga");
+            teams[7] = new Team("Sevilla").setLeague("La Liga");
+
+            teams[8] = new Team("Juventus").setLeague("Serie A");
+            teams[9] = new Team("Inter Milan").setLeague("Serie A");
+            teams[10] = new Team("AC Milan").setLeague("Serie A");
+            teams[11] = new Team("A.S. Roma").setLeague("Serie A");
+
+
+            teams[12] = new Team("Bayern Munich").setLeague("Bundesliga");
+            teams[12] = new Team("Borrusia Dortmund").setLeague("Bundesliga");
+            teams[12] = new Team("FC Schalke 04").setLeague("Bundesliga");
+            teams[12] = new Team("Hamburger SV").setLeague("Bundesliga");
+
+            var body = document.getElementById("teamsBody");
+            for(var x = 0; x < teams.length; x++){
+                var row = body.insertRow(x);
+                var team = row.insertCell(0);
+                var league = row.insertCell(1);
+                team.innerHTML = teams[x].getName();
+                league.innerHTML = teams[x].getLeague();
+            }
+        };
+    </script>
+</body>
+</html>
